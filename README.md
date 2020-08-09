@@ -16,14 +16,12 @@ The method totalOrder() gets an ORDER ID s parameter and returns the total for t
 Preparation and delivery
 Each order goes through different states, that can be checked via the method getStatus(), which gets as parameter the ORDER ID and returns the status as an enum of type OrderStatus.An order is initially in the state NEW.
 An order can be confirmed via the method confirm() that changes the order's status to CONFIRMED and returns an estimate of the delivery time in minutes. The delivery time is calculated as a sum of (a) a fixed initial delay of 5 minutes, (b) the maximum among the preparation times, and (c) 15 minutes fixed transport time. If the ORDER ID is not valid, or the order is not in the state NEW, the method throws the exception DeliveryException.
-
 Then, the state of an order may be changed to PREPARATION by the method start(), which returns the estimate delivery time, as the sum of (b) and (c) of the previous point.If the ORDER ID is not valid, or the order is not in the state CONFIRMED, the method throws the exception DeliveryException.
 After preparation, the status of an order may be changed to ON_DELIVERY by the method deliver(), which returns the estimate delivery time, that is, (c) of the previous point.If the ORDER ID is not valid, or the order is not in the state PREPARATION, the method throws the exception DeliveryException.
 Eventually, the delivery is recorded by calling the method complete(), which changes the status to DELIVERED.If the ORDER ID is not valid, or the order is not in the state ON_DELIVERY, the method throws the exception DeliveryException.
 
 Reports
 All the reports are computed including only orders that have been previously confirmed.
-
 The method totalCustomer() gets a CUSTOMER ID as parameter and returns the total of his orders.
-
 The method bestCustomers() ranks customers according to their orders. It returns a map with the total of the orders as key, and the list of the customers that ordered such a total av value. Customers are represented with strings in the format specified in Delivery Class. the map is sorted by decreasing total.
+
