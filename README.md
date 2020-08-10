@@ -1,4 +1,4 @@
-Summary of the purpose of the project
+Summary of the purpose of the project:
 
 Managing a food-delivery services ,such as , adding new customers , food menu items , making an order , and eventually providing some statistics 
 
